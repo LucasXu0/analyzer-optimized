@@ -23,7 +23,7 @@ void main() async {
         if (libraryCycles.add(libraryCycle)) {
           var libraries = libraryCycle.libraries;
           if (libraries.length > 5) {
-            print('[${libraries.length}]');
+            // print removed
             print('  ${libraryCycle.libraryUris.join('\n  ')}');
           }
         }

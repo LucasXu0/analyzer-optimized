@@ -24,7 +24,7 @@ void main() async {
     {
       var timer = Stopwatch()..start();
       for (var analysisContext in collection.contexts) {
-        print(analysisContext.contextRoot.root.path);
+        // print removed
         var analysisSession = analysisContext.currentSession;
         for (var path in analysisContext.contextRoot.analyzedFiles()) {
           if (path.endsWith('.dart')) {
@@ -38,13 +38,13 @@ void main() async {
           }
         }
       }
-      print('[time: ${timer.elapsedMilliseconds} ms]');
+      // print removed
     }
 
     {
       var buffer = StringBuffer();
       collection.scheduler.accumulatedPerformance.write(buffer: buffer);
-      print(buffer);
+      // print removed
       collection.scheduler.accumulatedPerformance =
           OperationPerformanceImpl('<scheduler>');
     }

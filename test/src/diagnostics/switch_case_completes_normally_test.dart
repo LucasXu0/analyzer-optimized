@@ -50,7 +50,7 @@ void f(int a) {
 void f(int a) {
   switch (a) {
     case 0:
-      print(0);
+      // print removed
     default:
       return;
   }
@@ -81,7 +81,7 @@ void f(int a) {
   switch (a) {
     case 0:
       for (;;) {
-        print(0);
+        // print removed
       }
     default:
       return;
@@ -95,7 +95,7 @@ void f(int a) {
 f(int a) {
   switch (a) {
     case 0:
-      print(0);
+      // print removed
   }
 }
 ''');
@@ -124,7 +124,7 @@ void f(int a) {
   switch (a) {
     case 0:
     case 1:
-      print(0);
+      // print removed
     default:
       return;
   }
@@ -180,7 +180,7 @@ void f(int a) {
   switch (a) {
     case 0:
       while (true) {
-        print(0);
+        // print removed
       }
     default:
       return;

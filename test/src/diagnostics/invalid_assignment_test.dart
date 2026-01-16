@@ -733,7 +733,7 @@ f() {
 f(var y) {
   if (y is String) {
     int x = y;
-    print(x);
+    // print removed
   }
 }
 ''', [
@@ -907,7 +907,7 @@ void f<X extends A, Y extends B>(X x) {
     await assertErrorsInCode('''
 void f() {
   (int, int) r = (a: 1, b: 2);
-  print(r);
+  // print removed
 }
 ''', [
       error(CompileTimeErrorCode.INVALID_ASSIGNMENT, 28, 12),
@@ -1020,7 +1020,7 @@ class D {}
 void f<X extends A, Y extends B>(X x) {
   if (x is Y) {
     D d = x;
-    print(d);
+    // print removed
   }
 }
 ''', [
@@ -1052,7 +1052,7 @@ main() {
   var p1 = new Point(0, 0);
   var p2 = new Point(10, 10);
   int n = p1 + p2;
-  print(n);
+  // print removed
 }
 ''', [
       error(CompileTimeErrorCode.INVALID_ASSIGNMENT, 218, 7),

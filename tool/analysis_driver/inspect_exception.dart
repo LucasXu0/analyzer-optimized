@@ -11,7 +11,7 @@ void main(List<String> args) {
   ArgParser argParser = ArgParser()..addFlag('raw');
   ArgResults argResults = argParser.parse(args);
   if (argResults.rest.length != 1) {
-    print(argParser.usage);
+    // print removed
     exitCode = 1;
     return;
   }
@@ -21,28 +21,28 @@ void main(List<String> args) {
   AnalysisDriverExceptionContext context =
       AnalysisDriverExceptionContext.fromBuffer(bytes);
 
-  print(context.path);
-  print('');
-  print('');
-  print('');
+  // print removed
+  // print removed
+  // print removed
+  // print removed
 
-  print(context.exception);
-  print('');
-  print('');
-  print('');
+  // print removed
+  // print removed
+  // print removed
+  // print removed
 
-  print(context.stackTrace);
-  print('');
-  print('');
-  print('');
+  // print removed
+  // print removed
+  // print removed
+  // print removed
 
   for (var file in context.files) {
-    print("=" * 40);
-    print(file.path);
-    print("-" * 40);
-    print(file.content);
-    print('');
-    print('');
-    print('');
+    // print removed
+    // print removed
+    // print removed
+    // print removed
+    // print removed
+    // print removed
+    // print removed
   }
 }

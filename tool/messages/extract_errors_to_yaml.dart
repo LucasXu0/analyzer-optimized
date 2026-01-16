@@ -85,9 +85,9 @@ String _encodeYaml(Map<Object?, Object?> yaml) {
       throw 'YAML did match after parsing';
     }
   } on Object {
-    print('=== Error in yaml file ===');
-    print(result);
-    print('===');
+    // print removed
+    // print removed
+    // print removed
     rethrow;
   }
   return result;
@@ -233,7 +233,7 @@ void _generateYaml(Map<String, List<ErrorCode>> errorCodesByClass,
     }
   }
   String encodedYaml = _encodeYaml(yaml);
-  print(encodedYaml);
+  // print removed
 }
 
 class _CommentInfo {

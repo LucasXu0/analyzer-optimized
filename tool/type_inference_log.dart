@@ -17,7 +17,7 @@ Future<void> main(List<String> args) async {
   var argResults = argParser.parse(args);
   var paths = argResults.rest;
   if (paths.length != 1) {
-    print('Exactly one path must be specified.');
+    // print removed
     exit(1);
   }
   var filePath = normalize(absolute(paths.single));
@@ -30,18 +30,18 @@ Future<void> main(List<String> args) async {
       .currentSession
       .getResolvedUnit(filePath);
   if (result is! ResolvedUnitResult) {
-    print('Failed to resolve `$filePath`: ${result.runtimeType}');
+    // print removed
     exit(1);
   }
   if (!result.exists) {
-    print('File does not exist: `$filePath`');
+    // print removed
     exit(1);
   }
   var errors = result.errors;
   if (errors.isNotEmpty) {
-    print('${errors.length} errors found:');
+    // print removed
     for (var error in errors) {
-      print('  $error');
+      // print removed
     }
   }
 }

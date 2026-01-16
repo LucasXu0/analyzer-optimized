@@ -130,7 +130,7 @@ abstract class AstDataExtractor<T> extends GeneralizingAstVisitor<void>
   @override
   void report(Uri uri, int offset, String message) {
     // TODO(paulberry): find a way to print the error more nicely.
-    print('$uri:$offset: $message');
+    // Print disabled
   }
 
   void run(CompilationUnit unit) {

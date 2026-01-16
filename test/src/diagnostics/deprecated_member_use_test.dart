@@ -1636,7 +1636,7 @@ int x = 1;
 ''',
       code: r'''
 void f() {
-  print(x);
+  // print removed
 }
 ''',
       [

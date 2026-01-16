@@ -2059,7 +2059,7 @@ bool true
 test() {
   void _() {}
   const c = _;
-  print(c);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 11, 11),

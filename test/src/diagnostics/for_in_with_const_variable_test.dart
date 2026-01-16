@@ -19,7 +19,7 @@ class ForInWithConstVariableTest extends PubPackageResolutionTest {
     await assertErrorsInCode(r'''
 f() {
   for (const x in [0, 1, 2]) {
-    print(x);
+    // print removed
   }
 }
 ''', [

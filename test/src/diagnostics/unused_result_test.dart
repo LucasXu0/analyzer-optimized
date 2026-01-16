@@ -154,7 +154,7 @@ class A {
 
 void f() {
   var bar = A();
-  print(bar);
+  // print removed
 }
 ''');
   }
@@ -187,7 +187,7 @@ class A {
 
 void main() {
   var bar = A().foo; // OK
-  print(bar);
+  // print removed
 }
 ''');
   }
@@ -203,7 +203,7 @@ class A {
 
 void f(bool b) {
   var bar = b ? 0 : A().foo; // OK
-  print(bar);
+  // print removed
 }
 ''');
   }
@@ -219,7 +219,7 @@ class A {
 
 void f(bool b) {
   var bar = b ? A().foo : 0; // OK
-  print(bar);
+  // print removed
 }
 ''');
   }
@@ -235,7 +235,7 @@ class A {
 
 void f(bool b) {
   var c = b ? (A().foo) : 0;
-  print(c);
+  // print removed
 }
 ''');
   }
@@ -251,7 +251,7 @@ class A {
 
 void main() {
   var bar = ((A().foo)); // OK
-  print(bar);
+  // print removed
 }
 ''');
   }
@@ -447,7 +447,7 @@ class A {
 
 void main() {
   var l = [ A().foo ]; // OK
-  print(l);
+  // print removed
   [ A().foo ]; // Also OK
 }
 ''');
@@ -464,7 +464,7 @@ class A {
 
 void main() {
   var m = { A().foo : 'baz'}; // OK
-  print(m);
+  // print removed
 }
 ''');
   }
@@ -480,7 +480,7 @@ class A {
 
 void main() {
   var m = { 'baz': A().foo }; // OK
-  print(m);
+  // print removed
 }
 ''');
   }
@@ -496,7 +496,7 @@ class A {
 
 void main() {
   var s = { A().foo }; // OK
-  print(s);
+  // print removed
 }
 ''');
   }
@@ -741,7 +741,7 @@ class A {
 
 void main() {
   var bar = A().foo(); // OK
-  print(bar);
+  // print removed
 }
 ''');
   }
@@ -981,7 +981,7 @@ import 'package:meta/meta.dart';
 
 f() {
   var [a] = g();
-  print(a);
+  // print removed
 }
 
 @useResult
@@ -995,7 +995,7 @@ import 'package:meta/meta.dart';
 
 f() {
   var {'a' : a} = g();
-  print(a);
+  // print removed
 }
 
 @useResult
@@ -1045,7 +1045,7 @@ class A {
 }
 f() {
   var A(a: b) = g();
-  print(b);
+  // print removed
 }
 
 @useResult
@@ -1089,7 +1089,7 @@ import 'package:meta/meta.dart';
 
 f() {
   var (x, y) = g();
-  print('$x$y');
+  // print removed
 }
 
 @useResult
@@ -1482,7 +1482,7 @@ int foo() => 0;
 
 void main() {
   var x = foo(); // OK
-  print(x);
+  // print removed
 }
 ''');
   }
@@ -1496,7 +1496,7 @@ int foo() => 0;
 
 void main() {
   var x = foo()..toString(); // OK
-  print(x);
+  // print removed
 }
 ''');
   }
@@ -1667,7 +1667,7 @@ int foo = 0;
 
 void main() {
   var bar = foo; // OK
-  print(bar);
+  // print removed
 }
 ''');
   }
@@ -1680,7 +1680,7 @@ import 'package:meta/meta.dart';
 int foo = 0;
 
 void main() {
-  print(foo); // OK
+  // print removed // OK
 }
 ''');
   }

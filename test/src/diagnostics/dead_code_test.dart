@@ -218,7 +218,7 @@ f(List<Object> values) {
     }
     return;
   }
-  print('not dead');
+  // print removed
 }
 ''');
   }
@@ -233,7 +233,7 @@ f() {
     }
     return;
   }
-  print('not dead');
+  // print removed
 }
 ''');
   }
@@ -244,9 +244,9 @@ main() {
   try {
     return f();
   } catch (e) {
-    print(e);
+    // print removed
   }
-  print('not dead');
+  // print removed
 }
 f() {
   throw 'foo';
@@ -677,7 +677,7 @@ f() {
     await assertErrorsInCode(r'''
 f() {
   bool b = false && false;
-  print(b);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 23, 8),
@@ -689,7 +689,7 @@ f() {
 const bool DEBUG = false;
 f() {
   bool b = DEBUG && false;
-  print(b);
+  // print removed
 }
 ''');
   }
@@ -698,7 +698,7 @@ f() {
     await assertErrorsInCode(r'''
 f() {
   bool b = false && (false && false);
-  print(b);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 23, 19),
@@ -709,7 +709,7 @@ f() {
     await assertErrorsInCode(r'''
 f() {
   bool b = true || true;
-  print(b);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 22, 7),
@@ -731,7 +731,7 @@ f() {
     await assertErrorsInCode(r'''
 f() {
   bool b = true || (false && false);
-  print(b);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 22, 19),
@@ -749,7 +749,7 @@ int f() => 0;
     await assertErrorsInCode(r'''
 void f(bool c) {
   do {
-    print(c);
+    // print removed
     return;
   } while (c);
 }
@@ -768,7 +768,7 @@ void f(bool c) {
     }
     return;
   } while (c);
-  print('');
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 19, 4),
@@ -786,7 +786,7 @@ void f(bool c) {
     }
     return;
   } while (c);
-  print('');
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 28, 4),
@@ -803,7 +803,7 @@ void f(bool c) {
     }
     return;
   } while (c);
-  print('');
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 19, 4),
@@ -823,9 +823,9 @@ void f(bool c) {
       }
       return;
     } while (c);
-    print('');
+    // print removed
   } while (c);
-  print('');
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 37, 4),
@@ -844,7 +844,7 @@ void f(bool c) {
       }
       return;
     } while (c);
-    print('');
+    // print removed
   }
 }
 ''', [
@@ -858,10 +858,10 @@ void f(bool c) {
     await assertErrorsInCode(r'''
 void f(bool c) {
   do {
-    print(c);
+    // print removed
     return;
   } while (c);
-  print('2');
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 19, 4),
@@ -1180,7 +1180,7 @@ class A {
 }
 void g(A a) {
   a.f(0);
-  print(1);
+  // print removed
 }
 ''', [
       error(WarningCode.RECEIVER_OF_TYPE_NEVER, 54, 3),
@@ -1192,7 +1192,7 @@ void g(A a) {
     await assertErrorsInCode(r'''
 void g(Never f) {
   (f)(0);
-  print(1);
+  // print removed
 }
 ''', [
       error(WarningCode.RECEIVER_OF_TYPE_NEVER, 20, 3),
@@ -1204,7 +1204,7 @@ void g(Never f) {
     await assertErrorsInCode(r'''
 void g(Never f) {
   f(0);
-  print(1);
+  // print removed
 }
 ''', [
       error(WarningCode.RECEIVER_OF_TYPE_NEVER, 20, 1),
@@ -1288,9 +1288,9 @@ class C {
   }
 
 f() {
-  print(1);
+  // print removed
   new C().a;
-  print(2);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 129, 9),
@@ -1304,7 +1304,7 @@ f(v) {
     case 1:
     default:
       break;
-      print(1);
+      // print removed
   }
 }
 ''', [
@@ -1318,7 +1318,7 @@ f() {
   var list;
   for(var l in list) {
     break;
-    print(l);
+    // print removed
   }
 }
 ''', [
@@ -1331,7 +1331,7 @@ f() {
 f() {
   for(;;) {
     break;
-    print(1);
+    // print removed
   }
 }
 ''', [
@@ -1345,7 +1345,7 @@ f(v) {
   switch(v) {
     case 1:
       break;
-      print(1);
+      // print removed
   }
 }
 ''', [
@@ -1358,7 +1358,7 @@ f(v) {
 f(v) {
   while(v) {
     break;
-    print(1);
+    // print removed
   }
 }
 ''', [
@@ -1372,7 +1372,7 @@ f() {
   var list;
   for(var l in list) {
     continue;
-    print(l);
+    // print removed
   }
 }
 ''', [
@@ -1385,7 +1385,7 @@ f() {
 f() {
   for(;;) {
     continue;
-    print(1);
+    // print removed
   }
 }
 ''', [
@@ -1398,7 +1398,7 @@ f() {
 f(v) {
   while(v) {
     continue;
-    print(1);
+    // print removed
   }
 }
 ''', [
@@ -1414,7 +1414,7 @@ f() {
   } else {
     return;
   }
-  print(1);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 62, 9),
@@ -1427,7 +1427,7 @@ f() {
   if (1 < 0) {
     return;
   }
-  print(1);
+  // print removed
 }
 ''');
   }
@@ -1436,10 +1436,10 @@ f() {
     await assertErrorsInCode(r'''
 f() {
   try {
-    print(1);
+    // print removed
   } catch (e) {
     rethrow;
-    print(2);
+    // print removed
   }
 }
 ''', [
@@ -1450,9 +1450,9 @@ f() {
   test_statementAfterReturn_function() async {
     await assertErrorsInCode(r'''
 f() {
-  print(1);
+  // print removed
   return;
-  print(2);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 30, 9),
@@ -1463,9 +1463,9 @@ f() {
     await assertErrorsInCode(r'''
 f() {
   void g() {
-    print(1);
+    // print removed
     return;
-    print(2);
+    // print removed
   }
   g();
 }
@@ -1478,9 +1478,9 @@ f() {
     await assertErrorsInCode(r'''
 f() {
   () {
-    print(1);
+    // print removed
     return;
-    print(2);
+    // print removed
   };
 }
 ''', [
@@ -1492,9 +1492,9 @@ f() {
     await assertErrorsInCode(r'''
 f(bool b) {
   if(b) {
-    print(1);
+    // print removed
     return;
-    print(2);
+    // print removed
   }
 }
 ''', [
@@ -1506,9 +1506,9 @@ f(bool b) {
     await assertErrorsInCode(r'''
 class A {
   m() {
-    print(1);
+    // print removed
     return;
-    print(2);
+    // print removed
   }
 }
 ''', [
@@ -1519,7 +1519,7 @@ class A {
   test_statementAfterReturn_nested() async {
     await assertErrorsInCode(r'''
 f() {
-  print(1);
+  // print removed
   return;
   if(false) {}
 }
@@ -1531,11 +1531,11 @@ f() {
   test_statementAfterReturn_twoReturns() async {
     await assertErrorsInCode(r'''
 f() {
-  print(1);
+  // print removed
   return;
-  print(2);
+  // print removed
   return;
-  print(3);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 30, 31),
@@ -1545,9 +1545,9 @@ f() {
   test_statementAfterThrow() async {
     await assertErrorsInCode(r'''
 f() {
-  print(1);
+  // print removed
   throw 'Stop here';
-  print(2);
+  // print removed
 }
 ''', [
       error(WarningCode.DEAD_CODE, 41, 9),
@@ -1672,11 +1672,11 @@ var x = [1, 2, f(), 4];
 main() {
   try {
     foo();
-    print('dead');
+    // print removed
   } finally {
-    print('alive');
+    // print removed
   }
-  print('dead');
+  // print removed
 }
 Never foo() => throw 'exception';
 ''', [

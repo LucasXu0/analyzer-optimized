@@ -465,7 +465,7 @@ f() {
 
     testRecovery(r'''
 f() {
-  print("${42");
+  // print removed
 }
 ''', [
       ParserErrorCode.EXPECTED_TOKEN,
@@ -476,7 +476,7 @@ f() {
       ScannerErrorCode.UNTERMINATED_STRING_LITERAL
     ], r'''
 f() {
-  print("${42}");
+  // print removed
 }
 ''');
   }

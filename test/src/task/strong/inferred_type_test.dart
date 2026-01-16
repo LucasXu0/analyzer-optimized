@@ -2597,7 +2597,7 @@ m(x) => x;
 }
 main() {
   int y = new D().m<int>(42);
-  print(y);
+  // print removed
 }
 ''', [
       error(CompileTimeErrorCode.INVALID_OVERRIDE, 50, 1,
@@ -2677,7 +2677,7 @@ class D extends C {
 }
 main() {
   int y = (new D() as C).m(42);
-  print(y);
+  // print removed
 }
 ''', [
       error(CompileTimeErrorCode.INVALID_OVERRIDE, 74, 1,
@@ -2763,7 +2763,7 @@ class D extends C {
 }
 main() {
   int y = new D().m<int>(42);
-  print(y);
+  // print removed
 }
 ''');
   }
@@ -4768,8 +4768,8 @@ class A {
 test() {
   var a = new A();
   A b = a;                      // doesn't require down cast
-  print(a.x);     // doesn't require dynamic invoke
-  print(a.x + 2); // ok to use in bigger expression
+  // print removed     // doesn't require dynamic invoke
+  // print removed // ok to use in bigger expression
 }
 ''', [
       error(WarningCode.UNUSED_LOCAL_VARIABLE, 58, 1),
@@ -4785,7 +4785,7 @@ class A {
 test() {
   dynamic a = new A();
   A b = a;
-  print(a.x);
+  // print removed
   print((a.x) + 2);
 }
 ''', [
@@ -4832,10 +4832,10 @@ class D {
 
 void main() {
   var d1 = new D();
-  print(d1.c.b.a.x);
+  // print removed
 
   D d2 = new D();
-  print(d2.c.b.a.x);
+  // print removed
 }
 ''');
   }
@@ -5299,9 +5299,9 @@ var v = new C().f(() { return 1; });
   test_voidReturnTypeEquivalentToDynamic() async {
     await assertErrorsInCode(r'''
 T run<T>(T f()) {
-  print("running");
+  // print removed
   var t = f();
-  print("done running");
+  // print removed
   return t;
 }
 

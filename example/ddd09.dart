@@ -24,23 +24,23 @@ void main() async {
 
   var timer = Stopwatch()..start();
   for (var analysisContext in collection.contexts) {
-    print(analysisContext.contextRoot.root.path);
+    // print removed
     var analysisSession = analysisContext.currentSession;
     for (var path in analysisContext.contextRoot.analyzedFiles()) {
       if (path.endsWith('.dart')) {
-        print('  $path');
+        // print removed
         var unitResult = await analysisSession.getResolvedUnit(path);
         unitResult as ResolvedUnitResult;
         unitResult.unit.accept(visitor);
       }
     }
   }
-  print('[time: ${timer.elapsedMilliseconds} ms]');
+  // print removed
   await collection.dispose();
 
   print(
       '[countFunctionExpressionInvocation: ${visitor.countFunctionExpressionInvocation}]');
-  print('[countMethodInvocation: ${visitor.countMethodInvocation}]');
+  // print removed
   print(
       '[countInstanceCreationExpression: ${visitor.countInstanceCreationExpression}]');
   // print(visitor.countToRefCount.entries
@@ -67,7 +67,7 @@ class _Visitor extends RecursiveAstVisitor<void> {
   @override
   void visitFunctionExpressionInvocation(FunctionExpressionInvocation node) {
     if (node.function.staticType is InterfaceType) {
-      print('    $node');
+      // print removed
       countFunctionExpressionInvocation++;
     }
     super.visitFunctionExpressionInvocation(node);

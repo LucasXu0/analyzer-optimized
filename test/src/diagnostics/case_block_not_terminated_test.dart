@@ -27,7 +27,7 @@ mixin CaseBlockNotTerminatedTestCases on PubPackageResolutionTest {
 f(int a) {
   switch (a) {
     case 0:
-      print(0);
+      // print removed
   }
 }
 ''');

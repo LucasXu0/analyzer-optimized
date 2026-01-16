@@ -40,7 +40,7 @@ void main() async {
       // print(analysisContext.contextRoot.root.path);
       for (var filePath in analysisContext.contextRoot.analyzedFiles()) {
         if (filePath.endsWith('.dart')) {
-          print('  $filePath');
+          // print removed
           var analysisSession = analysisContext.currentSession;
           var result = await analysisSession.getResolvedUnit(filePath);
           result as ResolvedUnitResult;
@@ -49,7 +49,7 @@ void main() async {
       }
     }
     timer.stop();
-    print('[time: ${timer.elapsedMilliseconds} ms]');
+    // print removed
 
     var profiler = ProcessProfiler.getProfilerForPlatform()!;
     print((await profiler.getProcessUsage(pid))!.memoryMB);

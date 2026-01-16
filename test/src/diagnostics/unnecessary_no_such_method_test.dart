@@ -39,7 +39,7 @@ class A {
 class B extends A {
   mmm();
   noSuchMethod(y) {
-    print(y);
+    // print removed
   }
 }
 ''');
@@ -53,7 +53,7 @@ class A {
 class B extends A {
   mmm();
   noSuchMethod(y) {
-    print(y);
+    // print removed
     return super.noSuchMethod(y);
   }
 }

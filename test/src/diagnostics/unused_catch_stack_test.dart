@@ -32,7 +32,7 @@ main() {
 main() {
   try {
   } on String catch (exception, stackTrace) {
-    print(stackTrace);
+    // print removed
   }
 }
 ''');
@@ -55,7 +55,7 @@ main() {
 main() {
   try {
   } catch (exception, stackTrace) {
-    print(stackTrace);
+    // print removed
   }
 }
 ''');

@@ -76,7 +76,7 @@ class SearchTest extends PubPackageResolutionTest {
   ) {
     var actual = _getDeclarationsText(symbols, inFiles);
     if (actual != expected) {
-      print(actual);
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -90,7 +90,7 @@ class SearchTest extends PubPackageResolutionTest {
     var results = await driver.search.references(element, searchedFiles);
     var actual = _getSearchResultsText(results);
     if (actual != expected) {
-      print(actual);
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -105,7 +105,7 @@ class SearchTest extends PubPackageResolutionTest {
         await driver.search.unresolvedMemberReferences(name, searchedFiles);
     var actual = _getSearchResultsText(results);
     if (actual != expected) {
-      print(actual);
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -800,7 +800,7 @@ class C {
     await resolveTestCode('''
 class C {
   main() {
-    print(test);
+    // print removed
     test = 1;
     test += 2;
     test();

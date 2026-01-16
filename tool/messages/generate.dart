@@ -271,22 +271,22 @@ class _SyntacticErrorGenerator {
         in cfeToAnalyzerErrorCodeTables.infoToAnalyzerCode.values) {
       if (errorConverterSource.contains('"$errorCode"')) {
         if (converterCount == 0) {
-          print('');
+          // print removed
           print('The following ParserErrorCodes could be removed'
               ' from error_converter.dart:');
         }
-        print('  $errorCode');
+        // print removed
         ++converterCount;
       }
     }
     if (converterCount > 3) {
-      print('  $converterCount total');
+      // print removed
     }
 
     // Fail if there are manual changes to be made, but do so
     // in a fire and forget manner so that the files are still generated.
     if (converterCount > 0) {
-      print('');
+      // print removed
       throw 'Error: missing manual code changes';
     }
   }
@@ -328,18 +328,18 @@ class _SyntacticErrorGenerator {
       }
     });
     if (analyzerToFasta.isNotEmpty) {
-      print('');
-      print('The following ParserErrorCodes could be auto generated:');
+      // print removed
+      // print removed
       for (String analyzerName in analyzerToFasta.keys.toList()..sort()) {
         List<String> fastaNames = analyzerToFasta[analyzerName]!;
         if (fastaNames.length == 1) {
-          print('  $analyzerName = ${fastaNames.first}');
+          // print removed
         } else {
-          print('  $analyzerName = $fastaNames');
+          // print removed
         }
       }
       if (analyzerToFasta.length > 3) {
-        print('  ${analyzerToFasta.length} total');
+        // print removed
       }
     }
 
@@ -368,8 +368,8 @@ class _SyntacticErrorGenerator {
       token = token.next!;
     }
     if (untranslatedFastaErrorCodes.isNotEmpty) {
-      print('');
-      print('The following error codes in the parser are not auto generated:');
+      // print removed
+      // print removed
       var sorted = untranslatedFastaErrorCodes.toList()..sort();
       for (String fastaErrorCode in sorted) {
         String analyzerCode = '';

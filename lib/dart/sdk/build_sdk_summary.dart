@@ -26,15 +26,12 @@ Future<Uint8List> buildSdkSummary({
   String? embedderYamlPath,
 }) async {
   final _perfStart = DateTime.now();
-  print('[PERF-SDK] buildSdkSummary started at ${_perfStart.toIso8601String()}');
 
   final _sdkCreateStart = DateTime.now();
   var sdk = FolderBasedDartSdk(
     resourceProvider,
     resourceProvider.getFolder(sdkPath),
   );
-  print('[PERF-SDK] FolderBasedDartSdk created in ${DateTime.now().difference(_sdkCreateStart).inMilliseconds}ms');
-  print('[PERF-SDK] SDK has ${sdk.uris.length} libraries');
 
   // Append libraries from the embedder.
   if (embedderYamlPath != null) {
@@ -55,7 +52,6 @@ Future<Uint8List> buildSdkSummary({
         addedLibs++;
       }
     }
-    print('[PERF-SDK] Embedder processing completed in ${DateTime.now().difference(_embedderStart).inMilliseconds}ms, added $addedLibs libraries');
   }
 
   final _driverSetupStart = DateTime.now();
@@ -74,13 +70,10 @@ Future<Uint8List> buildSdkSummary({
     packages: Packages({}),
   );
   scheduler.start();
-  print('[PERF-SDK] AnalysisDriver setup completed in ${DateTime.now().difference(_driverSetupStart).inMilliseconds}ms');
 
   var libraryUriList = sdk.uris.map(Uri.parse).toList();
-  print('[PERF-SDK] Processing ${libraryUriList.length} SDK libraries');
 
   final _buildBundleStart = DateTime.now();
-  print('[PERF-SDK] Calling analysisDriver.buildPackageBundle at ${_buildBundleStart.toIso8601String()}');
   final result = await analysisDriver.buildPackageBundle(
     uriList: libraryUriList,
     packageBundleSdk: PackageBundleSdk(
@@ -89,10 +82,6 @@ Future<Uint8List> buildSdkSummary({
       allowedExperimentsJson: sdk.allowedExperimentsJson,
     ),
   );
-  print('[PERF-SDK] analysisDriver.buildPackageBundle completed in ${DateTime.now().difference(_buildBundleStart).inMilliseconds}ms');
-  print('[PERF-SDK] Result bundle size: ${result.length} bytes');
-
-  print('[PERF-SDK] buildSdkSummary total time: ${DateTime.now().difference(_perfStart).inMilliseconds}ms');
   return result;
 }
 

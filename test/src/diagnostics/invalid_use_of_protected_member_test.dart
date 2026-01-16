@@ -35,7 +35,7 @@ import 'lib1.dart';
 
 void main() {
   var leak = new A().a;
-  print(leak);
+  // print removed
 }
 ''');
 
@@ -520,7 +520,7 @@ import 'package:meta/meta.dart';
 @protected
 int x = 0;
 main() {
-  print(x);
+  // print removed
 }''');
     // TODO(brianwilkerson): This should produce a hint because the
     // annotation is being applied to the wrong kind of declaration.

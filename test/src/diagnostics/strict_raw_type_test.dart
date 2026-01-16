@@ -26,7 +26,7 @@ class StrictRawTypeTest extends PubPackageResolutionTest {
   test_asExpression() async {
     await assertNoErrorsInCode(r'''
 void f(dynamic x) {
-  print(x as List);
+  // print removed
 }
 ''');
   }
@@ -34,7 +34,7 @@ void f(dynamic x) {
   test_asExpression_typeArgument() async {
     await assertNoErrorsInCode(r'''
 void f(dynamic x) {
-  print(x as List<List>);
+  // print removed
 }
 ''');
   }
@@ -163,9 +163,9 @@ var c = List.empty();
   test_isExpression() async {
     await assertNoErrorsInCode(r'''
 void f(dynamic x) {
-  print(x is List);
-  print(x is List<dynamic>);
-  print(x is List<List>);
+  // print removed
+  // print removed
+  // print removed
 }
 ''');
   }
@@ -210,7 +210,7 @@ void f() {
     await assertNoErrorsInCode(r'''
 void f() {
   List<Object> a = [1, 2, 3];
-  print(a);
+  // print removed
 }
 ''');
   }

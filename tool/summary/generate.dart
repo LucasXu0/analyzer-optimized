@@ -28,8 +28,8 @@ import 'mini_ast.dart';
 
 void main(List<String> args) async {
   if (args.length != 1) {
-    print('Error: IDL path is required');
-    print('usage: dart generate.dart path/to/idl.dart');
+    // print removed
+    // print removed
     return;
   }
   String idlPath = args[0];

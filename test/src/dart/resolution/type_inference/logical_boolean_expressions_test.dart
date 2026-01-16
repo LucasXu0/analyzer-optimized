@@ -19,7 +19,7 @@ class LogicalAndTest extends PubPackageResolutionTest {
     await resolveTestCode('''
 void f(b) {
   var c = a() && b();
-  print(c);
+  // print removed
 }
 T a<T>() => throw '';
 T b<T>() => throw '';
@@ -66,7 +66,7 @@ BinaryExpression
     await resolveTestCode('''
 void f(bool a, bool b) {
   var c = a && b;
-  print(c);
+  // print removed
 }
 ''');
 
@@ -99,7 +99,7 @@ class LogicalOrTest extends PubPackageResolutionTest {
     await resolveTestCode('''
 void f(b) {
   var c = a() || b();
-  print(c);
+  // print removed
 }
 T a<T>() => throw '';
 T b<T>() => throw '';
@@ -146,7 +146,7 @@ BinaryExpression
     await resolveTestCode('''
 void f(bool a, bool b) {
   var c = a || b;
-  print(c);
+  // print removed
 }
 ''');
 

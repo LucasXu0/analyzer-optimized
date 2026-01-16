@@ -333,7 +333,7 @@ ConditionalExpression
     await resolveTestCode('''
 void f(bool a, int b, int c) {
   var d = a ? b : c;
-  print(d);
+  // print removed
 }
 ''');
     assertType(findNode.simple('d)'), 'int');

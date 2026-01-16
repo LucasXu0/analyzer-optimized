@@ -55,7 +55,7 @@ f() {
 f() {
   const x = 0;
   for (x in <int>[1, 2]) {
-    print(x);
+    // print removed
   }
 }''', [
       error(CompileTimeErrorCode.ASSIGNMENT_TO_CONST, 28, 1),

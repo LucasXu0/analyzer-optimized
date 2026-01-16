@@ -371,21 +371,7 @@ base class _ScopeAnalyzer {
   }
 
   void dumpState() {
-    print('  scopeIndices: $scopeIndices');
-    print('  pendingEffects: $pendingEffects');
-    print('  scopeStart: $scopeStart');
-    print('  outerScopeStarts: $outerScopeStarts');
-    print('  stateVarToPendingEffectsIndex: $stateVarToPendingEffectsIndex');
-    print('  previousPendingEffectsIndices: $previousPendingEffectsIndices');
-    print('  localToStateVar: $localToStateVar');
-    print('  allocIndexToStateVar: $allocIndexToStateVar');
-    print('  beginAddresses: $beginAddresses');
-    print('  effects: $effects');
-    print('  effectCounts: $effectCounts');
-    print('  effectIndices: $effectIndices');
-    print('  endAddresses: $endAddresses');
-    print('  lastDescendants: $lastDescendants');
-    print('  parents: $parents');
+    // Debug state dump disabled
   }
 
   void popScope(int address) {
@@ -456,7 +442,7 @@ base class _ScopeAnalyzer {
     for (var address = 0; address < ir.endAddress; address++) {
       assert(checkState());
       if (enableDebugPrints) {
-        print('$address: ${ir.instructionToString(address)}');
+        // Debug prints disabled
       }
       eventListener.onInstruction(address);
       switch (ir.opcodeAt(address)) {

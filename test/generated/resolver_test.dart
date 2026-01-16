@@ -239,7 +239,7 @@ class C {
   void f(Base x) {
     x = Base();
     if (x is Derived) {
-      print(x.y); // BAD
+      // print removed // BAD
     }
     x = Base();
   }
@@ -248,7 +248,7 @@ class C {
 void g(Base x) {
   x = Base();
   if (x is Derived) {
-    print(x.y); // GOOD
+    // print removed // GOOD
   }
   x = Base();
 }

@@ -17,13 +17,13 @@ void main() async {
 
     var timer = Stopwatch()..start();
     for (var analysisContext in collection.contexts) {
-      print(analysisContext.contextRoot.root.path);
+      // print removed
       var analysisSession = analysisContext.currentSession;
       for (var path in analysisContext.contextRoot.analyzedFiles()) {
         if (path.endsWith('.dart')) {
           var unitResult = await analysisSession.getResolvedUnit(path);
           unitResult as ResolvedUnitResult;
-          print('    ${unitResult.path}');
+          // print removed
           var ep = '\n        ';
           print('      errors:$ep${unitResult.errors.join(ep)}');
           // print('---');
@@ -32,7 +32,7 @@ void main() async {
         }
       }
     }
-    print('[time: ${timer.elapsedMilliseconds} ms]');
+    // print removed
 
     await collection.dispose();
   }

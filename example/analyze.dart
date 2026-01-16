@@ -25,7 +25,7 @@ void main(List<String> args) async {
   // Often one context is returned, but depending on the project structure we
   // can see multiple contexts.
   for (var context in collection.contexts) {
-    print('Analyzing ${context.contextRoot.root.path} ...');
+    // print removed
 
     for (var filePath in context.contextRoot.analyzedFiles()) {
       if (!filePath.endsWith('.dart')) {
@@ -45,5 +45,5 @@ void main(List<String> args) async {
     }
   }
 
-  print('$issueCount issues found.');
+  // print removed
 }

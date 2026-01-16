@@ -35,6 +35,6 @@ void main() async {
   }
 
   timer.stop();
-  print('Time: ${timer.elapsedMilliseconds} ms');
-  print('Content: $contentLength bytes');
+  // print removed
+  // print removed
 }

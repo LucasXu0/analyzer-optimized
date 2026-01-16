@@ -415,7 +415,7 @@ void f(int value) {
     await assertErrorsInCode(r'''
 print(x) {}
 main() {
-  print(is String);
+  // print removed
 }
 ''', [
       error(ParserErrorCode.MISSING_IDENTIFIER, 29, 2),

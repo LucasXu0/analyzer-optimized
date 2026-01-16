@@ -85,7 +85,7 @@ class FileResolutionTest with ResourceProviderMixin, ResolutionTest {
     var actual = buffer.toString();
 
     if (actual != expected) {
-      print(actual);
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);

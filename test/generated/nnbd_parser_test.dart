@@ -310,7 +310,7 @@ class C {
 }
 
 void f(C c) {
-  print(c.late);
+  // print removed
 }
 
 main() {
@@ -327,7 +327,7 @@ class C {
 }
 
 void f(C c) {
-  print(c.late);
+  // print removed
 }
 
 main() {

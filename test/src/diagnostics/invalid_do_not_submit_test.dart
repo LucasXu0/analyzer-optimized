@@ -113,7 +113,7 @@ import 'package:meta/meta.dart';
 
 void a({@doNotSubmit int? a}) {
   var c = () {
-    print(a);
+    // print removed
   };
   c();
 }
@@ -127,7 +127,7 @@ void a({@doNotSubmit int? a}) {
 import 'package:meta/meta.dart';
 
 void a({@doNotSubmit int? a}) {
-  print(a);
+  // print removed
 }
 ''');
 
@@ -141,7 +141,7 @@ import 'package:meta/meta.dart';
 class A {
   @doNotSubmit
   void a({int? a}) {
-    print(a);
+    // print removed
   }
 }
 ''');
@@ -163,7 +163,7 @@ extension A on int {
 import 'a.dart';
 
 void b() {
-  print(0.a);
+  // print removed
 }
 ''');
 
@@ -256,7 +256,7 @@ import 'a.dart';
 
 void b() {
   var a = A();
-  print(a.a);
+  // print removed
 }
 ''');
 

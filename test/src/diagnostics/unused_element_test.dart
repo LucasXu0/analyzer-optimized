@@ -172,7 +172,7 @@ main() {
 class _A {}
 main() {
   var v = new List<_A>.empty();
-  print(v);
+  // print removed
 }
 ''');
   }
@@ -275,7 +275,7 @@ main() {
 class _A {}
 void f() {
   _A? v;
-  print(v);
+  // print removed
 }
 print(x) {}
 ''', [
@@ -288,7 +288,7 @@ print(x) {}
 class _A {}
 main() {
   List<_A>? v;
-  print(v);
+  // print removed
 }
 print(x) {}
 ''', [
@@ -550,7 +550,7 @@ extension type _E(int i) {}
 
 void f() {
   _E? v;
-  print(v);
+  // print removed
 }
 ''', [
       error(WarningCode.UNUSED_ELEMENT, 15, 2),
@@ -563,7 +563,7 @@ extension type _E(int i) {}
 
 void f() {
   List<_E>? v;
-  print(v);
+  // print removed
 }
 ''', [
       error(WarningCode.UNUSED_ELEMENT, 15, 2),
@@ -686,7 +686,7 @@ main() {
     await assertNoErrorsInCode(r'''
 main() {
   f() {}
-  print(f);
+  // print removed
 }
 print(x) {}
 ''');
@@ -719,7 +719,7 @@ main() {
 typedef _F(a, b);
 main(f) {
   if (f is _F) {
-    print('F');
+    // print removed
   }
 }
 ''');
@@ -738,7 +738,7 @@ void f(_F c) {
 typedef _F(a, b);
 main() {
   var v = new List<_F>.empty();
-  print(v);
+  // print removed
 }
 ''');
   }
@@ -809,7 +809,7 @@ class B<T> {
 void main() {
   B<int> b = B();
   b.a._item = 3;
-  print(b.a._item == 7);
+  // print removed
 }
 ''');
   }
@@ -822,7 +822,7 @@ abstract class A<T> {
 
   void main() {
     _thing ??= _defaultThing;
-    print(_thing);
+    // print removed
   }
 }
 class B extends A<int> {
@@ -1018,7 +1018,7 @@ class A {
 class A {
   _m() {}
   useMethod() {
-    print(_m);
+    // print removed
   }
 }
 print(x) {}
@@ -1030,7 +1030,7 @@ print(x) {}
 class A {
   _m() {}
   useMethod() {
-    print(_m);
+    // print removed
   }
 }
 class B extends A {
@@ -2862,7 +2862,7 @@ main() {
     await assertNoErrorsInCode(r'''
 _f() {}
 main() {
-  print(_f);
+  // print removed
 }
 print(x) {}
 ''');
@@ -3014,7 +3014,7 @@ int _a = 7;
 typedef _F = void Function();
 main(f) {
   if (f is _F) {
-    print('F');
+    // print removed
   }
 }
 ''');
@@ -3033,7 +3033,7 @@ void f(_F f) {
 typedef _F = void Function();
 main() {
   var v = new List<_F>.empty();
-  print(v);
+  // print removed
 }
 ''');
   }

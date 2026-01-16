@@ -4348,7 +4348,7 @@ class _InheritanceManager3Base extends PubPackageResolutionTest {
     var actual = lines.isNotEmpty ? '${lines.join('\n')}\n' : '';
 
     if (actual != expected) {
-      print(actual);
+      // print removed
     }
     expect(actual, expected);
   }
@@ -4371,7 +4371,7 @@ class _InheritanceManager3Base extends PubPackageResolutionTest {
     var actual = lines.isNotEmpty ? '${lines.join('\n')}\n' : '';
 
     if (actual != expected) {
-      print(actual);
+      // print removed
     }
     expect(actual, expected);
   }
@@ -4386,8 +4386,8 @@ class _InheritanceManager3Base2 extends ElementsBaseTest {
   void assertInterfaceText(InterfaceElementImpl element, String expected) {
     var actual = _interfaceText(element);
     if (actual != expected) {
-      print('-------- Actual --------');
-      print('$actual------------------------');
+      // print removed
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);

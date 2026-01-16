@@ -8,7 +8,7 @@ import 'dart:io';
 /// output from `test.py` and performs some simple analysis of it.
 void main(List<String> args) async {
   if (args.length != 1) {
-    print('Usage: dart test_log_parser logFilePath');
+    // print removed
     return;
   }
   String filePath = args[0];
@@ -74,8 +74,8 @@ void main(List<String> args) async {
     }
   }
 
-  print('$failureCount failing tests:');
-  print('');
+  // print removed
+  // print removed
   List<String> keys = testsByExpectedAndActual.keys.toList();
   keys.sort();
   for (String key in keys) {
@@ -88,14 +88,14 @@ void main(List<String> args) async {
   }
   if (missingCodes.isNotEmpty) {
     missingCodes.sort();
-    print('');
+    // print removed
     print('Missing error codes (${missingCodes.length}):');
     for (String message in missingCodes) {
-      print('  $message');
+      // print removed
     }
   }
   if (testsByStackTrace.isNotEmpty) {
-    print('');
+    // print removed
     print('Unique stack traces (${testsByStackTrace.length}):');
     var keys = testsByStackTrace.keys.toList();
     keys.sort((first, second) {

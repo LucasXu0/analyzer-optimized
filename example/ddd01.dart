@@ -10,7 +10,7 @@ void main() async {
     var analysisSession = analysisContext.currentSession;
     for (var path in analysisContext.contextRoot.analyzedFiles()) {
       if (path.endsWith('.dart')) {
-        print('  $path');
+        // print removed
         await analysisSession.getResolvedUnit(path);
       }
     }

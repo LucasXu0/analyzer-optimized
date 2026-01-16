@@ -121,7 +121,7 @@ mixin ResolutionTest implements ResourceProviderMixin {
     ).write(object as DartObjectImpl?);
     var actual = buffer.toString();
     if (actual != expected) {
-      print(actual);
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -287,8 +287,8 @@ mixin ResolutionTest implements ResourceProviderMixin {
 
     var actual = buffer.toString();
     if (actual != expected) {
-      print('-------- Actual --------');
-      print('$actual------------------------');
+      // print removed
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -317,8 +317,8 @@ mixin ResolutionTest implements ResourceProviderMixin {
 
     var actual = buffer.toString();
     if (actual != expected) {
-      print('-------- Actual --------');
-      print('$actual------------------------');
+      // print removed
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -327,7 +327,7 @@ mixin ResolutionTest implements ResourceProviderMixin {
   void assertResolvedNodeText(AstNode node, String expected) {
     var actual = _resolvedNodeText(node);
     if (actual != expected) {
-      print(actual);
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);

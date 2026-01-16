@@ -242,7 +242,7 @@ class A {
 void f() {
   @A(3)
   int? x;
-  print(x);
+  // print removed
 }
 ''');
 

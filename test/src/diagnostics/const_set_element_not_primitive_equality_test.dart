@@ -79,7 +79,7 @@ class B implements A {
 
 main() {
   var m = const {const A()};
-  print(m);
+  // print removed
 }
 ''', [
       error(CompileTimeErrorCode.CONST_SET_ELEMENT_NOT_PRIMITIVE_EQUALITY, 128,

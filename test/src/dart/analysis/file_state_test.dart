@@ -6060,7 +6060,7 @@ class B {}
     newFile(path, r'''
 class C {
   foo() {
-    print(111);
+    // print removed
   }
 }
 ''');
@@ -6071,7 +6071,7 @@ class C {
     newFile(path, r'''
 class C {
   foo() {
-    print(222);
+    // print removed
   }
 }
 ''');

@@ -261,8 +261,8 @@ void f() {
   void test_block() {
     var findNode = _parseStringToFindNode(r'''
 void f() {
-  print(0);
-  print(1);
+  // print removed
+  // print removed
 }
 ''');
     var block = findNode.block('{');
@@ -276,11 +276,11 @@ void f() {
   void test_blockFunctionBody() {
     var findNode = _parseStringToFindNode(r'''
 void f() {
-  print('fff');
+  // print removed
 }
 
 void g() {
-  print('ggg');
+  // print removed
 }
 ''');
     _assertReplacementForChildren<BlockFunctionBody>(

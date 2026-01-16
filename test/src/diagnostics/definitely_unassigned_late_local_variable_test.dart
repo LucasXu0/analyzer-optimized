@@ -61,7 +61,7 @@ void main() {
 void f(bool c) {
   late int v;
   if (c) {
-    print(0);
+    // print removed
   } else {
     v = 0;
   }

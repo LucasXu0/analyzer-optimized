@@ -23,9 +23,9 @@ class AwaitInLateLocalVariableInitializerTest extends PubPackageResolutionTest {
 main() {
   var v = () async {
     late var v2 = await 42;
-    print(v2);
+    // print removed
   };
-  print(v);
+  // print removed
 }
 ''', [
       error(_errorCode, 48, 5),
@@ -36,7 +36,7 @@ main() {
     await assertErrorsInCode('''
 main() async {
   late var v = await 42;
-  print(v);
+  // print removed
 }
 ''', [
       error(_errorCode, 30, 5),
@@ -49,7 +49,7 @@ main() async {
   late var v = () async {
     await 42;
   };
-  print(v);
+  // print removed
 }
 ''');
   }
@@ -58,7 +58,7 @@ main() async {
     await assertNoErrorsInCode('''
 main() async {
   late var v = () async => await 42;
-  print(v);
+  // print removed
 }
 ''');
   }
@@ -67,7 +67,7 @@ main() async {
     await assertNoErrorsInCode('''
 main() async {
   late var v = 42;
-  print(v);
+  // print removed
 }
 ''');
   }
@@ -76,7 +76,7 @@ main() async {
     await assertNoErrorsInCode('''
 main() async {
   var v = await 42;
-  print(v);
+  // print removed
 }
 ''');
   }

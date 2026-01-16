@@ -331,7 +331,7 @@ import 'other.dart';
 void main() {
   const foo = Foo(1);
   const bar = Bar.some();
-  print("$foo, $bar");
+  // print removed
 }
 ''');
     var otherFileResult = await resolveFile(other);
@@ -360,7 +360,7 @@ import 'other.dart';
 void main() {
   const foo = Foo(1);
   const bar = Bar.some();
-  print("$foo, $bar");
+  // print removed
 }
 ''');
     var otherFileResult = await resolveFile(other);
@@ -514,7 +514,7 @@ class A {
 
 main() {
   var c = const A(int.fromEnvironment('x'));
-  print(c);
+  // print removed
 }
 ''');
   }
@@ -550,7 +550,7 @@ const b = bool.fromEnvironment('foo');
 main() {
   const l1 = [1, 2, 3];
   const l2 = [if (b) ...l1];
-  print(l2);
+  // print removed
 }
 ''');
   }

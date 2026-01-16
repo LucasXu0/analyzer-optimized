@@ -1055,7 +1055,7 @@ import 'a.dart';
 
 void func() {
   var a = A();
-  print(a.foo);
+  // print removed
 }
 ''');
 
@@ -1143,7 +1143,7 @@ main() {
 class A {
   void func(int n) {
     var foo = bar+1;
-    print(foo);
+    // print removed
  }
 }
 ''');
@@ -1162,7 +1162,7 @@ class A {
     var a = newFile('/workspace/dart/test/lib/a.dart', r'''
 class A {
   void func() {
-   print('hello');
+   // print removed
  }
 
  void func2() {
@@ -1279,7 +1279,7 @@ main() {
 const int C = 42;
 
 void func() {
-    print(C);
+    // print removed
 }
 ''');
 
@@ -2417,7 +2417,7 @@ part of my.lib;
 
 void func() {
   var a = A();
-  print(a.m);
+  // print removed
 }
 ''');
 
@@ -2442,7 +2442,7 @@ part of 'a.dart';
 
 void func() {
   var a = A();
-  print(a.m);
+  // print removed
 }
 ''');
 
@@ -2502,7 +2502,7 @@ part of 'a.dart';
 
 void func() {
   var a = A();
-  print(a.m);
+  // print removed
 }
 ''');
 

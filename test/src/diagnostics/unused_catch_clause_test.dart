@@ -54,7 +54,7 @@ f() {
 f() {
   try {
   } on String catch (exception) {
-    print(exception);
+    // print removed
   }
 }
 ''');
@@ -95,7 +95,7 @@ f() {
 f() {
   try {
   } catch (exception) {
-    print(exception);
+    // print removed
   }
 }
 ''');

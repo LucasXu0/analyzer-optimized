@@ -4043,7 +4043,7 @@ class ResolverVisitor extends ThrowingAstVisitor<void>
   /// This method returns `true` so that it can be conveniently called inside of
   /// an `assert` statement.
   bool _debugPrint(String s) {
-    print(s);
+    // Debug print disabled
     return true;
   }
 

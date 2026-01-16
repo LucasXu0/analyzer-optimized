@@ -31,7 +31,7 @@ main() {
   try {
     MacrosEnvironment.instance;
   } catch (_) {
-    print('Cannot initialize environment. Skip macros tests.');
+    // print removed
     test('fake', () {});
     return;
   }
@@ -1350,8 +1350,8 @@ class A {}
       expect(x.name, 'x');
       var actual = (x.constantInitializer as SimpleStringLiteral).value;
       if (actual != expected) {
-        print('-------- Actual --------');
-        print('$actual------------------------');
+        // print removed
+        // print removed
         NodeTextExpectationsCollector.add(actual);
       }
       expect(actual, expected);
@@ -6702,8 +6702,8 @@ abstract class MacroElementsBaseTest extends ElementsBaseTest {
       library: library,
       configuration: configuration,
     );
-    print('------------------------');
-    print('$text------------------------');
+    // print removed
+    // print removed
     fail('The library text above should have details.');
   }
 
@@ -6745,14 +6745,14 @@ abstract class MacroElementsBaseTest extends ElementsBaseTest {
     var actual = match?.group(1);
 
     if (actual == null) {
-      print('-------- Generated --------');
-      print('$generated---------------------------');
+      // print removed
+      // print removed
       fail('No introspection result.');
     }
 
     if (actual != expected) {
-      print('-------- Actual --------');
-      print('$actual------------------------');
+      // print removed
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -6785,8 +6785,8 @@ void _starter() {}
   void _assertMacroCode(LibraryElementImpl library, String expected) {
     var actual = _getMacroGeneratedCode(library);
     if (actual != expected) {
-      print('-------- Actual --------');
-      print('$actual------------------------');
+      // print removed
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -17401,8 +17401,8 @@ foo
     var actual = await _getIntrospectText(code);
     if (actual != expected) {
       NodeTextExpectationsCollector.add(actual);
-      print('-------- Actual --------');
-      print('$actual------------------------');
+      // print removed
+      // print removed
     }
     expect(actual, expected);
   }

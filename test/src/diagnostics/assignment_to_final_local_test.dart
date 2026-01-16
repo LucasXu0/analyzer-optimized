@@ -31,7 +31,7 @@ f() {
 f() {
   final i;
   for (i in [1, 2, 3]) {
-    print(i);
+    // print removed
   }
 }
 ''', [
@@ -44,7 +44,7 @@ f() {
 f() {
   final x = 0;
   for (x in <int>[1, 2]) {
-    print(x);
+    // print removed
   }
 }''', [
       error(CompileTimeErrorCode.ASSIGNMENT_TO_FINAL_LOCAL, 28, 1),
@@ -66,7 +66,7 @@ void f() {
 f() {
   late final int i;
   for (i in [1, 2, 3]) {
-    print(i);
+    // print removed
   }
 }
 ''', [

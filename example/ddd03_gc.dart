@@ -16,5 +16,5 @@ void main() {
       }
     }
   }
-  print('totalDuration: ${totalDuration.inMilliseconds} ms');
+  // print removed
 }

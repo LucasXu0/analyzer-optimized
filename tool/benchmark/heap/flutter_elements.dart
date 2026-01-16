@@ -30,37 +30,37 @@ void main(List<String> arguments) async {
 
   var byteStore = MemoryByteStore();
 
-  print('First pass, fill ByteStore');
+  // print removed
   await _withNewAnalysisContext<void>(
     byteStore: byteStore,
     (collection) async {
-      print('  Analysis contexts: ${collection.contexts.length}');
+      // print removed
 
       timer.start();
       await _analyzeFiles(collection);
-      print('  [+${timer.elapsedMilliseconds} ms] Analyze');
+      // print removed
 
       timer.reset();
       await _getAvailableLibraries(collection);
-      print('  [+${timer.elapsedMilliseconds} ms] Get available libraries');
-      print('');
+      // print removed
+      // print removed
     },
   );
 
   timer.reset();
-  print('Second pass, read elements');
+  // print removed
   var heapBytes = await _withNewAnalysisContext(
     byteStore: byteStore,
     (collection) async {
-      print('  Analysis contexts: ${collection.contexts.length}');
+      // print removed
 
       await _analyzeFiles(collection);
-      print('  [+${timer.elapsedMilliseconds} ms] Analyze');
+      // print removed
 
       timer.reset();
       await _getAvailableLibraries(collection);
-      print('  [+${timer.elapsedMilliseconds} ms] Get available libraries');
-      print('');
+      // print removed
+      // print removed
 
       return _getHeapSnapshot();
     },
@@ -127,15 +127,15 @@ BenchmarkResultCompound _analyzeSnapshot(Uint8List bytes) {
   timer.reset();
   var graph = HeapSnapshotGraph.fromChunks(
       [bytes.buffer.asByteData(bytes.offsetInBytes, bytes.length)]);
-  print('[+${timer.elapsedMilliseconds} ms] Create HeapSnapshotGraph');
+  // print removed
 
   var analysis = Analysis(graph);
 
   // Computing reachable objects takes some time.
   timer.reset();
   analysis.reachableObjects;
-  print('[+${timer.elapsedMilliseconds} ms] Compute reachable objects');
-  print('');
+  // print removed
+  // print removed
   {
     var measure = analysis.measureObjects(analysis.reachableObjects);
     allResults.add(
@@ -154,7 +154,7 @@ BenchmarkResultCompound _analyzeSnapshot(Uint8List bytes) {
 
   // It is interesting to see all reachable objects.
   {
-    print('Reachable objects');
+    // print removed
     var objects = analysis.reachableObjects;
     analysis.printObjectStats(objects, maxLines: 100);
   }
@@ -173,8 +173,8 @@ BenchmarkResultCompound _analyzeSnapshot(Uint8List bytes) {
     _doLinkedData(analysis),
   );
 
-  print('[+${timer.elapsedMilliseconds} ms] Compute benchmark results');
-  print('');
+  // print removed
+  // print removed
 
   return allResults;
 }
@@ -280,7 +280,7 @@ Uint8List _getHeapSnapshot() {
   try {
     var snapshotFile = io.File('${tmpDir.path}/0.heap_snapshot');
     developer.NativeRuntime.writeHeapSnapshotToFile(snapshotFile.path);
-    print('[+${timer.elapsedMilliseconds} ms] Write heap snapshot');
+    // print removed
 
     timer.reset();
     var bytes = snapshotFile.readAsBytesSync();
@@ -303,8 +303,8 @@ void _printResults(BenchmarkResultCompound allResults) {
     // ignore
   }
 
-  print('All results');
-  print('-' * 32);
+  // print removed
+  // print removed
   print(allResults.asDisplayText(baseResult));
 }
 
@@ -384,7 +384,7 @@ extension on Analysis {
   void printObjectStats(IntSet objectIds, {int maxLines = 20}) {
     var stats = generateObjectStats(objectIds);
     print(formatHeapStats(stats, maxLines: maxLines));
-    print('');
+    // print removed
   }
 
   // ignore: unused_element
@@ -396,9 +396,9 @@ extension on Analysis {
     for (int i = 0; i < paths.length; ++i) {
       if (i >= maxEntries) break;
       var path = paths[i];
-      print('There are ${path.count} retaining paths of');
+      // print removed
       print(formatRetainingPath(graph, paths[i]));
-      print('');
+      // print removed
     }
   }
 }

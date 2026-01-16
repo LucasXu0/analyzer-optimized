@@ -15,7 +15,7 @@ main() {
   try {
     MacrosEnvironment.instance;
   } catch (_) {
-    print('Cannot initialize environment. Skip macros tests.');
+    // print removed
     return;
   }
 

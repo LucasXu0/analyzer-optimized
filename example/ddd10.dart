@@ -44,7 +44,7 @@ Future<void> main() async {
         '[max: ${statistics.max.toStringAsFixed(1)}]',
       );
     } else {
-      print('[time: $responseTime ms]');
+      // print removed
     }
   }
 }

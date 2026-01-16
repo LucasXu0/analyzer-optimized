@@ -19,7 +19,7 @@ class EqualTest extends PubPackageResolutionTest {
     await resolveTestCode('''
 void f(Object a, Object b) {
   var c = a == b;
-  print(c);
+  // print removed
 }
 ''');
     assertType(findNode.simple('c)'), 'bool');
@@ -32,7 +32,7 @@ class NotEqualTest extends PubPackageResolutionTest {
     await resolveTestCode('''
 void f(Object a, Object b) {
   var c = a != b;
-  print(c);
+  // print removed
 }
 ''');
     assertType(findNode.simple('c)'), 'bool');

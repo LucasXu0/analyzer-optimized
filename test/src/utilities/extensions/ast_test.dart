@@ -312,7 +312,7 @@ var x = o.^m();
 void f() {
   var x = 0;
 ^
-  print(x);
+  // print removed
 }
 ''');
     node as Block;

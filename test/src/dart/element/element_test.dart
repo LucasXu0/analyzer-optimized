@@ -2002,7 +2002,7 @@ const int C = 42;
     await resolveTestCode(r'''
 import 'a.dart';
 main() {
-  print(C);
+  // print removed
 }
 ''');
     SimpleIdentifier argument = findNode.simple('C);');

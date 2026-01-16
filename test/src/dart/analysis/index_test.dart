@@ -39,7 +39,7 @@ class IndexTest extends PubPackageResolutionTest with _IndexMixin {
   void assertElementIndexText(Element element, String expected) {
     var actual = _getRelationsText(element);
     if (actual != expected) {
-      print(actual);
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);
@@ -535,7 +535,7 @@ class A {
   operator +(other) => this;
 }
 void f(A a) {
-  print(a + 1);
+  // print removed
   a += 2;
   ++a;
   a++;
@@ -557,7 +557,7 @@ class A {
   operator []=(i, v) {}
 }
 void f(A a) {
-  print(a[0]);
+  // print removed
   a[1] = 42;
 }
 ''');
@@ -578,7 +578,7 @@ class A {
   A operator ~() => this;
 }
 void f(A a) {
-  print(~a);
+  // print removed
 }
 ''');
     var element = findElement.method('~');
@@ -822,7 +822,7 @@ void f(A p) {
   A v;
   new A(); // 2
   A.field = 1;
-  print(A.field); // 3
+  // print removed // 3
 }
 ''');
     var element = findElement.class_('A');
@@ -1577,12 +1577,12 @@ class A {
   A({this.field});
   m() {
     field = 2; // nq
-    print(field); // nq
+    // print removed // nq
   }
 }
 void f(A a) {
   a.field = 3; // q
-  print(a.field); // q
+  // print removed // q
   new A(field: 4);
 }
 ''');
@@ -1612,9 +1612,9 @@ class A {
   var bbb;
   A(this.aaa, this.bbb) {}
   m() {
-    print(aaa);
+    // print removed
     aaa = 1;
-    print(bbb);
+    // print removed
     bbb = 2;
   }
 }
@@ -1733,10 +1733,10 @@ enum MyEnum {
   A, B, C
 }
 void f() {
-  print(MyEnum.values);
-  print(MyEnum.A.index);
-  print(MyEnum.A);
-  print(MyEnum.B);
+  // print removed
+  // print removed
+  // print removed
+  // print removed
 }
 ''');
 
@@ -1835,7 +1835,7 @@ void f() {
     await _indexTestUnit('''
 foo() {}
 void f() {
-  print(foo);
+  // print removed
   print(foo());
 }
 ''');
@@ -1925,8 +1925,8 @@ var myVariable = null;
 class A {
   method() {}
   void m() {
-    print(this.method); // q
-    print(method); // nq
+    // print removed // q
+    // print removed // nq
   }
 }''');
     var element = findElement.method('method');
@@ -2346,9 +2346,9 @@ import 'lib.dart' show V; // imp
 import 'lib.dart' as pref;
 void f() {
   pref.V = 5; // q
-  print(pref.V); // q
+  // print removed // q
   V = 5; // nq
-  print(V); // nq
+  // print removed // nq
 }''');
     TopLevelVariableElement variable = importFindLib().topVar('V');
 

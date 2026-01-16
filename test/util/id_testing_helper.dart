@@ -282,7 +282,7 @@ class AnalyzerCompiledData<T> extends CompiledData<T> {
   @override
   void reportError(Uri uri, int offset, String message,
       {bool succinct = false}) {
-    print('$offset: $message');
+    // print removed
   }
 }
 

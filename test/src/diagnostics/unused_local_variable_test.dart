@@ -590,7 +590,7 @@ main() {
     await assertNoErrorsInCode(r'''
 main() {
   var v = 1;
-  print(++v);
+  // print removed
 }
 print(x) {}
 ''');

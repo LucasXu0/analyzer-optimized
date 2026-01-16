@@ -881,8 +881,8 @@ unitElementResult
   ) {
     var actual = _getElementUnitResultText(result);
     if (actual != expected) {
-      print('-------- Actual --------');
-      print('$actual------------------------');
+      // print removed
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);

@@ -56,7 +56,7 @@ main() {
   testRequestHandler()
     ..stream(s1);
   var stream = 123;
-  print(stream);
+  // print removed
 }
 ''');
   }
@@ -77,7 +77,7 @@ print(x) {}
     await assertErrorsInCode(r'''
 var v = 1;
 main() {
-  print(v);
+  // print removed
   v() {}
 }
 print(x) {}
@@ -91,7 +91,7 @@ print(x) {}
     await assertErrorsInCode(r'''
 var v = 1;
 main() {
-  print(v);
+  // print removed
   var v = 2;
 }
 print(x) {}
@@ -106,7 +106,7 @@ print(x) {}
 var v = 1;
 main() {
   {
-    print(v);
+    // print removed
   }
   var v = 2;
 }
@@ -324,7 +324,7 @@ void f() {
 void testTypeRef() {
   String s = '';
   int String(int x) => x + 1;
-  print(s + String);
+  // print removed
 }
 ''', [
       error(CompileTimeErrorCode.REFERENCED_BEFORE_DECLARATION, 23, 6,
@@ -337,7 +337,7 @@ void testTypeRef() {
 void testTypeRef() {
   String s = '';
   var String = '';
-  print(s + String);
+  // print removed
 }
 ''', [
       error(CompileTimeErrorCode.REFERENCED_BEFORE_DECLARATION, 23, 6,

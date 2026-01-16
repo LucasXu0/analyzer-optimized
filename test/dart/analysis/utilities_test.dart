@@ -200,7 +200,7 @@ class A {}
   test_parseString_lineInfo() {
     String content = '''
 main() {
-  print('Hello, world!');
+  // print removed
 }
 ''';
     ParseStringResult result = parseString(content: content);

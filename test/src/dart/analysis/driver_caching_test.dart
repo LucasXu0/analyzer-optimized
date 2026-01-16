@@ -174,7 +174,7 @@ class A {
 
     addTestFile(r'''
 void f() {
-  print(0);
+  // print removed
 }
 ''');
 
@@ -191,7 +191,7 @@ void f() {
 
     addTestFile(r'''
 void f() {
-  print(1);
+  // print removed
 }
 ''');
 

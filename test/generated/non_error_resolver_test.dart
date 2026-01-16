@@ -95,7 +95,7 @@ class Future {
     await assertNoErrorsInCode(r'''
 import 'lib.dart';
 main() {
-  print(Future.zero);
+  // print removed
 }
 ''');
   }
@@ -2204,7 +2204,7 @@ class B extends A {
 abstract class S extends Stream {}
 f(S s) async {
   await for (var v in s) {
-    print(v);
+    // print removed
   }
 }
 ''');

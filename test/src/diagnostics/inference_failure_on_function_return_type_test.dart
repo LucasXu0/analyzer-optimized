@@ -151,7 +151,7 @@ void f(int callback()) {
   test_genericFunctionType() async {
     await assertErrorsInCode(r'''
 Function(int) f = (int n) {
-  print(n);
+  // print removed
 };
 ''', [error(WarningCode.INFERENCE_FAILURE_ON_FUNCTION_RETURN_TYPE, 0, 13)]);
   }
@@ -159,7 +159,7 @@ Function(int) f = (int n) {
   test_genericFunctionType_withReturnType() async {
     await assertNoErrorsInCode(r'''
 void Function(int) f = (int n) {
-  print(n);
+  // print removed
 };
 ''');
   }

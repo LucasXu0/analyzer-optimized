@@ -71,9 +71,9 @@ class B {
   void foo1() {}
 
   void foo2() {
-    print(0);
+    // print removed
     bar^
-    print(1);
+    // print removed
   }
 
   void foo3() {}
@@ -109,9 +109,9 @@ class B {
   void foo1() {}
 
   B() {
-    print(0);
+    // print removed
     bar^
-    print(1);
+    // print removed
   }
 
   void foo2() {}
@@ -142,7 +142,7 @@ class A {
   var f;
 
   A(int a) : f = a + bar^ {
-    print(0);
+    // print removed
   }
 }
 ''');
@@ -176,9 +176,9 @@ extension E on int {
   void foo1() {}
 
   void foo2() {
-    print(0);
+    // print removed
     bar^
-    print(1);
+    // print removed
   }
 
   void foo3() {}
@@ -195,9 +195,9 @@ extension E on int {
 void foo1() {}
 
 void foo2() {
-  print(0);
+  // print removed
   bar^
-  print(1);
+  // print removed
 }
 
 void foo3() {}
@@ -213,9 +213,9 @@ void foo3() {}
 void foo1() {}
 
 void foo2() {
-  print(0);
+  // print removed
   bar^;
-  print(1);
+  // print removed
 }
 
 void foo3() {}
@@ -254,9 +254,9 @@ mixin M {
   void foo1() {}
 
   void foo2() {
-    print(0);
+    // print removed
     bar^
-    print(1);
+    // print removed
   }
 
   void foo3() {}

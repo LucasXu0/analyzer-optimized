@@ -639,7 +639,7 @@ var a = A();
 import 'lib1.dart';
 
 void f() {
-  print(a.hashCode);
+  // print removed
 }
 ''');
 

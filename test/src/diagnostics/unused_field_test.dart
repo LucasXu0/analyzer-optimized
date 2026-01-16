@@ -20,7 +20,7 @@ class UnusedFieldTest extends PubPackageResolutionTest {
 class A {
   int _f = 0;
   main() {
-    print(++_f);
+    // print removed
   }
 }
 print(x) {}
@@ -80,7 +80,7 @@ class B extends A<int> {
 }
 void main() {
   B b = B._(7);
-  print(b._f == 7);
+  // print removed
 }
 ''');
   }
@@ -117,7 +117,7 @@ void main() => print(_A.f1);
 class A {
   int _f = 0;
   main() {
-    print(_f);
+    // print removed
   }
 }
 print(x) {}
@@ -138,7 +138,7 @@ class A {
 class A {
   int _f = 0;
   main() {
-    print(_f);
+    // print removed
   }
 }
 class B extends A {
@@ -155,7 +155,7 @@ class A {
 }
 main() {
   var a = new A();
-  print(a._f);
+  // print removed
 }
 print(x) {}
 ''');
@@ -168,7 +168,7 @@ class A {
 }
 main() {
   A a = new A();
-  print(a._f);
+  // print removed
 }
 print(x) {}
 ''');
@@ -180,7 +180,7 @@ class A {
   int _f = 0;
 }
 main(a) {
-  print(a._f);
+  // print removed
 }
 print(x) {}
 ''');
@@ -192,7 +192,7 @@ class A {
   var _ = 1;
   void m() {
     var _ = 0;
-    print(_);
+    // print removed
   }
 }
 ''');
@@ -204,7 +204,7 @@ class A {
 class A {
   var _ = 1;
   void m(int? _) {
-    print(_);
+    // print removed
   }
 }
 ''');

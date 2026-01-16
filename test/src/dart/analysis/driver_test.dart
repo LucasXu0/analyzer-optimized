@@ -116,8 +116,8 @@ class AnalysisDriver_PubPackageTest extends PubPackageResolutionTest {
 
     var actual = buffer.toString();
     if (actual != expected) {
-      print('-------- Actual --------');
-      print('$actual------------------------');
+      // print removed
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);

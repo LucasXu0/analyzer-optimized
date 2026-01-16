@@ -36,7 +36,7 @@ analyzer:
 
   var timer = Stopwatch()..start();
   for (var analysisContext in collection.contexts) {
-    print(analysisContext.contextRoot.root.path);
+    // print removed
     var analysisSession = analysisContext.currentSession;
     for (var path in analysisContext.contextRoot.analyzedFiles().sorted()) {
       if (path.endsWith('.dart')) {
@@ -51,7 +51,7 @@ analyzer:
           //   }
           // }
           for (var unitResult in libResult.units) {
-            print('    ${unitResult.path}');
+            // print removed
             var ep = '\n        ';
             print('      errors:$ep${unitResult.errors.join(ep)}');
             // print('---');
@@ -62,7 +62,7 @@ analyzer:
       }
     }
   }
-  print('[time: ${timer.elapsedMilliseconds} ms]');
+  // print removed
 
   await collection.dispose();
 }

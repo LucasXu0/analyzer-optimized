@@ -7,7 +7,7 @@ import 'file:/Users/scheglov/Source/Dart/sdk.git/sdk/pkg/analysis_server/tool/co
 void main() {
   var contents0 = r'''
 void main() {
-  print(12345);
+  // print removed
 }
 ''';
 
@@ -20,8 +20,8 @@ void main() {
   var statistics = SlidingStatistics(100);
 
   while (true) {
-    print('[length0: ${contents0.length}]');
-    print('[length: ${contents.length}]');
+    // print removed
+    // print removed
     var timer = Stopwatch()..start();
     _doScan(contents, contentBytes);
     timer.stop();
@@ -37,7 +37,7 @@ void main() {
         '[max: ${statistics.max.toStringAsFixed(1)}]',
       );
     } else {
-      print('[time: $responseTime mcs]');
+      // print removed
     }
   }
 }

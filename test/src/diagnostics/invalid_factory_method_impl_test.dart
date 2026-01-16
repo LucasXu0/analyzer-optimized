@@ -144,7 +144,7 @@ abstract class Stateful {
 class MyThing extends Stateful {
   @override
   State createState() {
-    print('my state');
+    // print removed
     return new MyState();
   }
 }

@@ -31,47 +31,47 @@ Future<void> main() async {
 
   timer.reset();
   await analysisDriver.getResolvedUnit(filePath);
-  print('[+${timer.elapsedMilliseconds} ms] Get resolved unit');
+  // print removed
 
   var bytes = _getHeapSnapshot();
 
   timer.reset();
   var graph = HeapSnapshotGraph.fromChunks(
       [bytes.buffer.asByteData(bytes.offsetInBytes, bytes.length)]);
-  print('[+${timer.elapsedMilliseconds} ms] Create HeapSnapshotGraph');
+  // print removed
 
   var analysis = Analysis(graph);
 
   // Computing reachable objects takes some time.
   timer.reset();
   analysis.reachableObjects;
-  print('[+${timer.elapsedMilliseconds} ms] Compute reachable objects');
-  print('');
+  // print removed
+  // print removed
   {
     var measure = analysis.measureObjects(analysis.reachableObjects);
-    print('reachableObjects');
-    print('  count: ${measure.count}');
+    // print removed
+    // print removed
     print('  size: ${formatBytes(measure.size)}');
   }
 
   // It is interesting to see all reachable objects.
   {
-    print('Reachable objects');
+    // print removed
     var objects = analysis.reachableObjects;
     analysis.printObjectStats(objects, maxLines: 100);
   }
 
   {
-    print('\n\n');
-    print('Tokens');
+    // print removed
+    // print removed
     var classSet = analysis.classByPredicate((e) {
       return e.name.endsWith('Token') || e.name.endsWith('TokenImpl');
     });
     var objects = analysis.filterByClassId(analysis.reachableObjects, classSet);
     analysis.printObjectStats(objects, maxLines: 100);
 
-    print('\n\n');
-    print('Tokens retainers');
+    // print removed
+    // print removed
     analysis.printRetainers(objects, maxEntries: 10);
   }
 }
@@ -89,7 +89,7 @@ Uint8List _getHeapSnapshot() {
   try {
     var snapshotFile = io.File('${tmpDir.path}/0.heap_snapshot');
     developer.NativeRuntime.writeHeapSnapshotToFile(snapshotFile.path);
-    print('[+${timer.elapsedMilliseconds} ms] Write heap snapshot');
+    // print removed
 
     timer.reset();
     var bytes = snapshotFile.readAsBytesSync();
@@ -148,7 +148,7 @@ extension on Analysis {
   void printObjectStats(IntSet objectIds, {int maxLines = 20}) {
     var stats = generateObjectStats(objectIds);
     print(formatHeapStats(stats, maxLines: maxLines));
-    print('');
+    // print removed
   }
 
   // ignore: unused_element
@@ -160,9 +160,9 @@ extension on Analysis {
     for (int i = 0; i < paths.length; ++i) {
       if (i >= maxEntries) break;
       var path = paths[i];
-      print('There are ${path.count} retaining paths of');
+      // print removed
       print(formatRetainingPath(graph, paths[i]));
-      print('');
+      // print removed
     }
   }
 }

@@ -32,7 +32,7 @@ class ParserDiagnosticsTest {
       withTokenPreviousNext: withTokenPreviousNext,
     );
     if (actual != expected) {
-      print(actual);
+      // print removed
       NodeTextExpectationsCollector.add(actual);
     }
     expect(actual, expected);

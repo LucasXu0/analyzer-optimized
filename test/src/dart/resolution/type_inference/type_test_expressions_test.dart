@@ -19,7 +19,7 @@ class IsNotTest extends PubPackageResolutionTest {
     await resolveTestCode('''
 void f(Object a) {
   var b = a is! String;
-  print(b);
+  // print removed
 }
 ''');
     assertType(findNode.simple('b)'), 'bool');
@@ -32,7 +32,7 @@ class IsTest extends PubPackageResolutionTest {
     await resolveTestCode('''
 void f(Object a) {
   var b = a is String;
-  print(b);
+  // print removed
 }
 ''');
     assertType(findNode.simple('b)'), 'bool');

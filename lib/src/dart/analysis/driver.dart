@@ -889,11 +889,9 @@ class AnalysisDriver {
   /// store, or built for a file to which the given [uri] is resolved.
   Future<SomeLibraryElementResult> getLibraryByUri(String uri) async {
     final _perfStart = DateTime.now();
-    print('[PERF-DRIVER] getLibraryByUri started for $uri at ${_perfStart.toIso8601String()}');
 
     final _parseUriStart = DateTime.now();
     var uriObj = uriCache.parse(uri);
-    print('[PERF-DRIVER]   URI parsed in ${DateTime.now().difference(_parseUriStart).inMilliseconds}ms');
 
     // Check if the element is already computed.
     if (_pendingFileChanges.isEmpty) {
@@ -902,41 +900,30 @@ class AnalysisDriver {
       var reference = rootReference.getChild('$uriObj');
       var element = reference.element;
       if (element is LibraryElementImpl) {
-        print('[PERF-DRIVER]   Cache hit! Returning cached element in ${DateTime.now().difference(_perfStart).inMilliseconds}ms');
         return LibraryElementResultImpl(element);
       }
-      print('[PERF-DRIVER]   Cache check completed in ${DateTime.now().difference(_cacheCheckStart).inMilliseconds}ms (cache miss)');
-    } else {
-      print('[PERF-DRIVER]   Skipping cache check (_pendingFileChanges not empty)');
     }
 
     final _getFileStart = DateTime.now();
     var fileOr = _fsState.getFileForUri(uriObj);
-    print('[PERF-DRIVER]   _fsState.getFileForUri completed in ${DateTime.now().difference(_getFileStart).inMilliseconds}ms');
 
     switch (fileOr) {
       case null:
-        print('[PERF-DRIVER]   URI cannot be resolved');
         return CannotResolveUriResult();
       case UriResolutionFile(:var file):
-        print('[PERF-DRIVER]   Resolved to file: ${file.path}');
         var kind = file.kind;
         if (kind is LibraryFileKind) {
-          print('[PERF-DRIVER]   File is a library kind');
+          // Library kind
         } else if (kind is PartFileKind) {
-          print('[PERF-DRIVER]   File is a part, not a library');
           return NotLibraryButPartResult();
         } else {
           throw UnimplementedError('(${kind.runtimeType}) $kind');
         }
 
         final _getUnitElementStart = DateTime.now();
-        print('[PERF-DRIVER]   Calling getUnitElement for ${file.path} at ${_getUnitElementStart.toIso8601String()}');
         var unitResult = await getUnitElement(file.path);
-        print('[PERF-DRIVER]   getUnitElement completed in ${DateTime.now().difference(_getUnitElementStart).inMilliseconds}ms');
 
         if (unitResult is UnitElementResult) {
-          print('[PERF-DRIVER] getLibraryByUri total time: ${DateTime.now().difference(_perfStart).inMilliseconds}ms for $uri');
           return LibraryElementResultImpl(unitResult.element.library);
         }
 
@@ -948,16 +935,12 @@ class AnalysisDriver {
         }
 
         // Should not happen.
-        print('[PERF-DRIVER]   Unexpected: returning UnspecifiedInvalidResult');
         return UnspecifiedInvalidResult();
       case UriResolutionExternalLibrary(:var source):
         var uri = source.uri;
-        print('[PERF-DRIVER]   Resolved to external library: $uri');
         final _getLibElementStart = DateTime.now();
         // TODO(scheglov): Check if the source is not for library.
         var element = libraryContext.getLibraryElement(uri);
-        print('[PERF-DRIVER]   libraryContext.getLibraryElement completed in ${DateTime.now().difference(_getLibElementStart).inMilliseconds}ms');
-        print('[PERF-DRIVER] getLibraryByUri total time: ${DateTime.now().difference(_perfStart).inMilliseconds}ms for $uri (external)');
         return LibraryElementResultImpl(element);
     }
   }

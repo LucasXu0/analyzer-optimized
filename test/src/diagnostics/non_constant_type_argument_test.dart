@@ -61,7 +61,7 @@ final class MyStruct extends Struct {
 void main() {
   final pointer = Pointer<MyStruct>.fromAddress(0)
     ..ref.myField = 1;
-  print(pointer);
+  // print removed
 }
 ''');
   }
